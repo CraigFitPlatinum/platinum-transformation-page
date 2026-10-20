@@ -1,441 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Platinum Mindful Movement Mastery | CraigFitOnline</title>
-    <meta name="description" content="A personal 1:1 transformation with Craig James. Move with freedom, live with energy, and reclaim your vitality. Built on 40+ years of mastery across movement, medicine, and mind.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        :root {
-            --black: #000000; --near-black: #080808; --ink: #0d0d0d; --dark: #111111; --card-bg: #141414;
-            --border: rgba(155,31,142,0.18); --border-strong: rgba(155,31,142,0.4);
-            --magenta: #9B1F8E; --white: #ffffff; --off-white: #f5f3f0;
-            --grey-light: #c8c4c0; --grey-mid: #888480; --grey-dark: #444140;
-        }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; background: var(--black); color: var(--white); line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-        img { display: block; max-width: 100%; }
-        a { color: inherit; text-decoration: none; }
-        @keyframes pulse-glow { 0%,100%{box-shadow:0 0 24px rgba(155,31,142,0.4)} 50%{box-shadow:0 0 56px rgba(155,31,142,0.75)} }
-        @keyframes float-ring { 0%,100%{transform:translate(-50%,-50%) scale(1);opacity:0.5} 50%{transform:translate(-50%,-50%) scale(1.06);opacity:0.9} }
-        @keyframes fade-up { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
-        .reveal { opacity:0; transform:translateY(36px); transition:opacity 0.85s ease,transform 0.85s ease; }
-        .reveal.visible { opacity:1; transform:translateY(0); }
-        .reveal-delay-1{transition-delay:0.1s} .reveal-delay-2{transition-delay:0.2s} .reveal-delay-3{transition-delay:0.3s}
-        .nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(0,0,0,0.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid rgba(155,31,142,0.15);padding:1rem 0}
-        .nav-inner{max-width:1100px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between}
-        .nav-brand{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;letter-spacing:0.06em;color:var(--white)}
-        .nav-brand span{color:var(--magenta)}
-        .nav-cta{display:inline-block;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:var(--white);background:var(--magenta);padding:0.55rem 1.4rem;border-radius:4px;transition:background 0.2s,box-shadow 0.2s}
-        .nav-cta:hover{background:#7d1874;box-shadow:0 0 28px rgba(155,31,142,0.5)}
-        .hero{position:relative;min-height:100vh;display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
-        .hero-mandala{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;opacity:0.04;pointer-events:none;z-index:1}
-        .hero-copy{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:9rem 3.5rem 5rem 4rem;background:linear-gradient(135deg,#000 60%,rgba(155,31,142,0.08) 100%)}
-        .hero-badge{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;color:var(--grey-light);border:1px solid rgba(155,31,142,0.35);background:rgba(155,31,142,0.08);padding:0.4rem 1rem;border-radius:999px;margin-bottom:2.25rem;width:fit-content;animation:fade-up 0.9s ease both 0.2s}
-        .hero-badge::before,.hero-badge::after{content:'\2736';color:var(--magenta);font-size:0.5rem}
-        .hero-h1{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,4.5vw,4.8rem);font-weight:600;line-height:1.08;letter-spacing:-0.01em;color:var(--white);margin-bottom:1.75rem;animation:fade-up 0.9s ease both 0.35s}
-        .hero-h1 em{font-style:italic;color:var(--magenta)}
-        .hero-sub{font-size:1rem;font-weight:300;color:var(--grey-light);line-height:1.9;max-width:460px;margin-bottom:2.75rem;animation:fade-up 0.9s ease both 0.5s}
-        .btn-primary{display:inline-block;background:var(--magenta);color:var(--white);font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;padding:1.1rem 2.8rem;border-radius:4px;transition:background 0.25s,box-shadow 0.25s,transform 0.2s;animation:pulse-glow 2.8s ease-in-out infinite,fade-up 0.9s ease both 0.65s;width:fit-content;border:none;cursor:pointer}
-        .btn-primary:hover{background:#7d1874;box-shadow:0 0 48px rgba(155,31,142,0.65);transform:translateY(-2px)}
-        .hero-trust{display:flex;flex-wrap:wrap;gap:1.25rem;margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.06);animation:fade-up 0.9s ease both 0.8s}
-        .hero-trust-item{display:flex;align-items:center;gap:0.45rem;font-size:0.72rem;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:var(--grey-mid)}
-        .hero-trust-item::before{content:'\2736';color:var(--magenta);font-size:0.5rem}
-        .hero-photo{position:relative;overflow:hidden}
-        .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
-        .hero-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.55) 0%,transparent 40%,transparent 80%,rgba(0,0,0,0.3) 100%)}
-        .stats-strip{background:var(--near-black);border-top:1px solid rgba(155,31,142,0.15);border-bottom:1px solid rgba(155,31,142,0.15)}
-        .stats-inner{max-width:1100px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:repeat(4,1fr)}
-        .stat-item{text-align:center;padding:2.25rem 1.5rem;border-right:1px solid rgba(155,31,142,0.15)}
-        .stat-item:last-child{border-right:none}
-        .stat-number{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:600;color:var(--magenta);line-height:1;margin-bottom:0.5rem}
-        .stat-label{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.16em;color:var(--grey-mid)}
-        .section{padding:6rem 2rem} .section-alt{background:var(--near-black)} .section-dark{background:var(--ink)}
-        .section-inner{max-width:1100px;margin:0 auto}
-        .section-label{display:block;font-size:0.63rem;font-weight:700;text-transform:uppercase;letter-spacing:0.24em;color:var(--magenta);margin-bottom:1rem}
-        .section-heading{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:600;line-height:1.15;color:var(--white);margin-bottom:1.5rem}
-        .section-heading em{font-style:italic;color:var(--magenta)}
-        .section-sub{font-size:1rem;font-weight:300;color:var(--grey-light);line-height:1.9;max-width:620px}
-        .divider-line{width:56px;height:3px;background:var(--magenta);border-radius:999px;margin:0 auto 2rem}
-        .quote-block{background:var(--dark);border-top:1px solid rgba(155,31,142,0.1);border-bottom:1px solid rgba(155,31,142,0.1);padding:4.5rem 2rem;text-align:center;position:relative;overflow:hidden}
-        .quote-block::before{content:'\201C';position:absolute;top:-2rem;left:50%;transform:translateX(-50%);font-family:'Playfair Display',serif;font-size:14rem;line-height:1;color:rgba(155,31,142,0.05);pointer-events:none;user-select:none}
-        .quote-text{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,2.8vw,2.2rem);font-style:italic;font-weight:400;color:var(--off-white);line-height:1.55;max-width:820px;margin:0 auto 1.25rem;position:relative;z-index:1}
-        .quote-source{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;color:var(--magenta)}
-        .problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start;margin-top:3.5rem}
-        .problem-list{list-style:none;display:flex;flex-direction:column;gap:1.5rem}
-        .problem-list li{display:flex;gap:1.1rem;font-size:0.97rem;font-weight:300;color:var(--grey-light);line-height:1.85}
-        .problem-list li::before{content:'';flex-shrink:0;width:1px;margin-top:0.35rem;height:1.2rem;background:var(--magenta)}
-        .problem-pullquote{background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--magenta);border-radius:4px;padding:2.5rem 2.25rem}
-        .problem-pullquote p{font-family:'Playfair Display',serif;font-size:1.3rem;font-style:italic;font-weight:400;color:var(--white);line-height:1.7}
-        .pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;margin-top:3.5rem}
-        .pillar{background:var(--card-bg);border:1px solid var(--border);border-radius:4px;padding:2.5rem 2rem;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s}
-        .pillar:hover{border-color:var(--border-strong);transform:translateY(-5px);box-shadow:0 12px 40px rgba(155,31,142,0.12)}
-        .pillar-num{font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:400;color:rgba(155,31,142,0.22);line-height:1;margin-bottom:1rem}
-        .pillar h3{font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:var(--magenta);margin-bottom:0.85rem}
-        .pillar p{font-size:0.9rem;font-weight:300;color:var(--grey-light);line-height:1.8}
-        .scarcity-strip{background:linear-gradient(90deg,#0f000f,#1c0018,#0f000f);border-top:1px solid rgba(155,31,142,0.4);border-bottom:1px solid rgba(155,31,142,0.4);padding:1.1rem 2rem;text-align:center}
-        .scarcity-strip p{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.18em;color:var(--magenta)}
-        .split-section{display:grid;grid-template-columns:1fr 1fr;min-height:560px}
-        .split-photo{position:relative;overflow:hidden}
-        .split-photo img{width:100%;height:100%;object-fit:cover}
-        .split-copy{display:flex;flex-direction:column;justify-content:center;padding:4rem;background:var(--near-black)}
-        .disciplines-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1rem;margin-top:3rem}
-        .discipline-item{background:var(--card-bg);border:1px solid var(--border);border-radius:4px;padding:1.1rem 1.5rem;display:flex;align-items:center;gap:0.85rem;transition:border-color 0.25s}
-        .discipline-item:hover{border-color:var(--border-strong)}
-        .discipline-item::before{content:'\2736';color:var(--magenta);font-size:0.45rem;flex-shrink:0}
-        .discipline-item span{font-size:0.85rem;font-weight:300;color:var(--grey-light)}
-        .credentials-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-        .credentials-copy{display:flex;flex-direction:column;gap:1.25rem}
-        .credentials-copy p{font-size:0.97rem;font-weight:300;color:var(--grey-light);line-height:1.9}
-        .credentials-copy strong{color:var(--white);font-weight:600}
-        .credential-tags{display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:0.5rem}
-        .credential-tag{font-size:0.67rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--grey-mid);padding:0.35rem 0.9rem;border:1px solid rgba(255,255,255,0.1);border-radius:999px}
-        .credentials-card{background:var(--card-bg);border:1px solid var(--border);border-radius:4px;padding:2.75rem 2.25rem;display:flex;flex-direction:column;gap:1.5rem}
-        .cred-line{display:flex;gap:1.1rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(255,255,255,0.05)}
-        .cred-line:last-child{border-bottom:none;padding-bottom:0}
-        .cred-dot{color:var(--magenta);font-size:0.55rem;flex-shrink:0;margin-top:0.25rem}
-        .cred-text strong{display:block;font-size:0.85rem;font-weight:600;color:var(--white);margin-bottom:0.2rem}
-        .cred-text span{font-size:0.82rem;font-weight:300;color:var(--grey-mid);line-height:1.65}
-        .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,280px);gap:6px;overflow:hidden}
-        .gallery-cell{position:relative;overflow:hidden}
-        .gallery-cell img{width:100%;height:100%;object-fit:cover;transition:transform 0.55s ease}
-        .gallery-cell:hover img{transform:scale(1.06)}
-        .gallery-cell::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(155,31,142,0.2) 100%);opacity:0;transition:opacity 0.35s}
-        .gallery-cell:hover::after{opacity:1}
-        .testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;margin-top:3.5rem}
-        .testimonial{background:var(--card-bg);border:1px solid var(--border);border-radius:4px;padding:2.25rem 2rem;transition:border-color 0.3s,transform 0.3s}
-        .testimonial:hover{border-color:var(--border-strong);transform:translateY(-4px)}
-        .stars{color:var(--magenta);font-size:0.85rem;letter-spacing:0.12em;margin-bottom:1.25rem}
-        .testimonial p{font-size:0.9rem;font-style:italic;font-weight:300;color:var(--grey-light);line-height:1.85;margin-bottom:1.5rem}
-        .testimonial-name{font-size:0.75rem;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:0.1em}
-        .timeline{display:flex;flex-direction:column;gap:0;margin-top:3.5rem;max-width:780px}
-        .timeline-item{display:flex;gap:2rem;padding-bottom:2.75rem;position:relative}
-        .timeline-item::before{content:'';position:absolute;left:20px;top:42px;bottom:0;width:1px;background:linear-gradient(to bottom,rgba(155,31,142,0.5),transparent)}
-        .timeline-item:last-child::before{display:none}
-        .timeline-marker{width:42px;height:42px;flex-shrink:0;border-radius:50%;background:var(--card-bg);border:1px solid var(--border-strong);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1rem;font-weight:500;color:var(--magenta);position:relative;z-index:1}
-        .timeline-content{padding-top:0.6rem}
-        .timeline-content h4{font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:var(--magenta);margin-bottom:0.6rem}
-        .timeline-content p{font-size:0.93rem;font-weight:300;color:var(--grey-light);line-height:1.85}
-        .offer-card{background:var(--card-bg);border:1px solid rgba(155,31,142,0.35);border-radius:6px;padding:3.5rem 3.5rem 3rem}
-        .offer-header{text-align:center;margin-bottom:3rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,0.05)}
-        .offer-header h3{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:600;color:var(--white);margin-bottom:0.75rem}
-        .offer-header p{font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.18em;color:var(--magenta)}
-        .deliverables-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:3rem}
-        .deliverable{display:flex;align-items:flex-start;gap:1rem}
-        .deliverable-check{color:var(--magenta);font-size:1rem;flex-shrink:0;margin-top:0.1rem;font-weight:700}
-        .deliverable-text strong{display:block;font-size:0.9rem;font-weight:600;color:var(--white);margin-bottom:0.2rem}
-        .deliverable-text span{font-size:0.8rem;font-weight:300;color:var(--grey-mid)}
-        .pricing-block{text-align:center;padding:2.5rem 2rem;margin-bottom:2.75rem;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05)}
-        .pricing-label{font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.22em;color:var(--grey-mid);margin-bottom:1rem}
-        .pricing-value{font-family:'Playfair Display',serif;font-size:2rem;font-weight:600;color:var(--white);margin-bottom:0.75rem}
-        .pricing-detail{font-size:0.88rem;font-weight:300;color:var(--grey-light);line-height:1.75;max-width:520px;margin:0 auto 0.5rem}
-        .pricing-note{font-size:0.68rem;font-weight:600;text-transform:uppercase;letter-spacing:0.14em;color:var(--grey-dark);margin-top:0.75rem}
-        .offer-cta-wrap{text-align:center;margin-bottom:2.5rem}
-        .offer-cta-sub{font-size:0.72rem;color:var(--grey-dark);margin-top:0.85rem}
-        .promise-block{background:rgba(155,31,142,0.07);border:1px solid rgba(155,31,142,0.3);border-radius:6px;padding:2.25rem 2rem;text-align:center}
-        .promise-icon{font-size:2rem;margin-bottom:0.85rem}
-        .promise-block h4{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;color:var(--white);margin-bottom:1rem}
-        .promise-block p{font-size:0.9rem;font-weight:300;color:var(--grey-light);line-height:1.85;max-width:620px;margin:0 auto}
-        .promise-block strong{color:var(--white);font-weight:600}
-        .faq-list{display:flex;flex-direction:column;gap:0.85rem;margin-top:3rem}
-        .faq-item{background:var(--card-bg);border:1px solid var(--border);border-radius:4px;overflow:hidden}
-        .faq-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:1.5rem 1.75rem;background:none;border:none;cursor:pointer;text-align:left;color:var(--white)}
-        .faq-trigger-text{font-size:0.95rem;font-weight:500;color:var(--off-white);flex:1}
-        .faq-icon{color:var(--magenta);font-size:1.2rem;flex-shrink:0;font-weight:300;line-height:1;transition:transform 0.25s}
-        .faq-body{max-height:0;overflow:hidden;transition:max-height 0.4s ease}
-        .faq-body.open{max-height:400px}
-        .faq-body-inner{padding:0 1.75rem 1.5rem;font-size:0.88rem;font-weight:300;color:var(--grey-light);line-height:1.85}
-        .final-cta{background:var(--black);padding:7rem 2rem;text-align:center;position:relative;overflow:hidden}
-        .final-cta-rings{position:absolute;top:50%;left:50%}
-        .final-ring{position:absolute;border-radius:50%;border:1px solid rgba(155,31,142,0.08);pointer-events:none;animation:float-ring 5s ease-in-out infinite}
-        .final-ring-1{width:500px;height:500px;margin-top:-250px;margin-left:-250px}
-        .final-ring-2{width:750px;height:750px;margin-top:-375px;margin-left:-375px;animation-delay:1.2s;border-color:rgba(155,31,142,0.04)}
-        .final-ring-3{width:1000px;height:1000px;margin-top:-500px;margin-left:-500px;animation-delay:2.4s;border-color:rgba(155,31,142,0.025)}
-        .final-cta-inner{position:relative;z-index:1;max-width:720px;margin:0 auto}
-        .final-cta h2{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,4.2rem);font-weight:600;line-height:1.12;color:var(--white);margin-bottom:1.75rem}
-        .final-cta h2 em{font-style:italic;color:var(--magenta)}
-        .final-cta-body{display:flex;flex-direction:column;gap:1.25rem;margin-bottom:3rem}
-        .final-cta-body p{font-size:1rem;font-weight:300;color:var(--grey-light);line-height:1.9}
-        .final-cta-note{font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.16em;color:var(--grey-dark);margin-top:1.25rem}
-        .footer{background:var(--near-black);border-top:1px solid rgba(155,31,142,0.1);padding:3rem 2rem;text-align:center}
-        .footer-brand{font-family:'Playfair Display',serif;font-size:1rem;font-weight:500;color:var(--white);margin-bottom:0.6rem}
-        .footer-sub{font-size:0.72rem;color:var(--grey-dark);margin-bottom:1.75rem}
-        .footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:1.75rem;margin-bottom:1.5rem}
-        .footer-links a{font-size:0.7rem;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:var(--grey-dark);transition:color 0.2s}
-        .footer-links a:hover{color:var(--grey-light)}
-        .footer-copy{font-size:0.7rem;color:var(--grey-dark)}
-        @media(max-width:900px){
-            .hero{grid-template-columns:1fr;min-height:auto}
-            .hero-photo{height:55vw;min-height:320px;order:-1}
-            .hero-copy{padding:5rem 2rem 4rem}
-            .hero-h1{font-size:clamp(2.2rem,7vw,3.5rem)}
-            .stats-inner{grid-template-columns:repeat(2,1fr)}
-            .stat-item:nth-child(2){border-right:none}
-            .stat-item:nth-child(3),.stat-item:nth-child(4){border-top:1px solid rgba(155,31,142,0.15)}
-            .problem-grid,.credentials-grid{grid-template-columns:1fr;gap:2.5rem}
-            .pillars-grid{grid-template-columns:1fr;gap:1.25rem}
-            .split-section{grid-template-columns:1fr}
-            .split-photo{height:56vw;min-height:280px}
-            .split-copy{padding:3rem 2rem}
-            .gallery-grid{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(3,220px)}
-            .testimonials-grid{grid-template-columns:1fr;gap:1.25rem}
-            .deliverables-grid{grid-template-columns:1fr}
-            .offer-card{padding:2.25rem 1.5rem}
-        }
-        @media(max-width:600px){
-            .section{padding:4rem 1.25rem}
-            .gallery-grid{grid-template-columns:1fr;grid-template-rows:repeat(6,200px)}
-            .hero-copy{padding:7rem 1.5rem 3.5rem}
-        }
-    </style>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Platinum 1:1 | CraigFitOnline</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,500&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:Inter,sans-serif;background:#000;color:#fff;line-height:1.7;-webkit-font-smoothing:antialiased}img{display:block;max-width:100%}a{color:inherit;text-decoration:none}p{font-size:.9rem;font-weight:300;color:#bbb;line-height:1.85}h2{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3.2vw,2.75rem);font-weight:600;line-height:1.15;margin-bottom:.9rem}em{font-style:italic;color:#9B1F8E}@keyframes pg{0%,100%{box-shadow:0 0 18px rgba(155,31,142,.4)}50%{box-shadow:0 0 44px rgba(155,31,142,.8)}}
+nav{position:fixed;top:0;left:0;right:0;z-index:9;background:rgba(0,0,0,.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(155,31,142,.2);padding:.75rem 1.4rem;display:flex;align-items:center;justify-content:space-between}
+.P{font-family:'Playfair Display',serif}.m{color:#9B1F8E}
+.btn{font-size:.73rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;background:#9B1F8E;color:#fff;padding:.85rem 2rem;border-radius:3px;border:none;cursor:pointer;animation:pg 3s ease-in-out infinite;display:inline-block}
+.nc{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;background:#9B1F8E;color:#fff;padding:.4rem .9rem;border-radius:3px}
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:100vh;overflow:hidden}
+.hc{display:flex;flex-direction:column;justify-content:center;padding:8rem 2.5rem 4.5rem;background:linear-gradient(135deg,#000 60%,rgba(155,31,142,.05))}
+h1{font-size:clamp(2.1rem,3.5vw,3.8rem);font-weight:600;line-height:1.08;margin-bottom:1.2rem}h1,.P{font-family:'Playfair Display',serif}
+.hp{overflow:hidden}.hp img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.ss{background:#0a0a0a;border-top:1px solid rgba(155,31,142,.2);border-bottom:1px solid rgba(155,31,142,.2);display:grid;grid-template-columns:repeat(4,1fr)}
+.st{text-align:center;padding:1.5rem .5rem;border-right:1px solid rgba(155,31,142,.2)}.st:last-child{border-right:none}
+.sn{font-size:1.95rem;font-weight:600;color:#9B1F8E;line-height:1;margin-bottom:.26rem}
+.sl{font-size:.56rem;font-weight:700;text-transform:uppercase;letter-spacing:.13em;color:#555}
+.s{padding:3.25rem 1.4rem}.sa{background:#0a0a0a}.sd{background:#111}.w{max-width:1000px;margin:0 auto}
+.lb{display:block;font-size:.55rem;font-weight:700;text-transform:uppercase;letter-spacing:.2em;color:#9B1F8E;margin-bottom:.65rem}
+.qb{border-top:1px solid rgba(155,31,142,.2);border-bottom:1px solid rgba(155,31,142,.2);padding:2.6rem 1.4rem;text-align:center}
+.qt{font-size:clamp(1.05rem,2vw,1.55rem);font-style:italic;color:#f0ede8;line-height:1.55;max-width:620px;margin:0 auto .5rem}
+.qs{font-size:.56rem;font-weight:700;text-transform:uppercase;letter-spacing:.17em;color:#9B1F8E}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:1.9rem;align-items:start;margin-top:1.9rem}
+.pl{list-style:none;display:flex;flex-direction:column;gap:.8rem}.pl li{display:flex;gap:.7rem}
+.pl li::before{content:'';flex-shrink:0;width:1px;margin-top:.32rem;height:.8rem;background:#9B1F8E}
+.pq{background:#161616;border:1px solid rgba(155,31,142,.2);border-left:3px solid #9B1F8E;border-radius:3px;padding:1.5rem}
+.pq p{font-size:1rem;font-style:italic;color:#fff;line-height:1.7}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem;margin-top:1.9rem}
+.card{background:#161616;border:1px solid rgba(155,31,142,.2);border-radius:3px;padding:1.5rem 1.35rem}
+.cn{font-size:2.1rem;font-weight:400;color:rgba(155,31,142,.18);line-height:1;margin-bottom:.5rem}
+.card h3{font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.11em;color:#9B1F8E;margin-bottom:.45rem}
+.sc{background:linear-gradient(90deg,#0f000f,#1c0018,#0f000f);border-top:1px solid rgba(155,31,142,.4);border-bottom:1px solid rgba(155,31,142,.4);padding:.7rem 1.4rem;text-align:center}
+.sc p{font-size:.59rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:#9B1F8E}
+.sp{display:grid;grid-template-columns:1fr 1fr}
+.spc{display:flex;flex-direction:column;justify-content:center;padding:2.4rem;background:#0a0a0a}
+.sph{overflow:hidden}.sph img{width:100%;height:100%;object-fit:cover}
+.dg{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:1.2rem}
+.di{background:#161616;border:1px solid rgba(155,31,142,.18);border-radius:3px;padding:.6rem .85rem;font-size:.72rem;font-weight:300;color:#aaa}
+.di::before{content:'\2736 ';color:#9B1F8E;font-size:.32rem}
+.bg{display:grid;grid-template-columns:1fr 1fr;gap:2.1rem;align-items:start}
+.bcc{background:#161616;border:1px solid rgba(155,31,142,.2);border-radius:3px;padding:1.5rem}
+.cl{display:flex;gap:.65rem;padding-bottom:.8rem;border-bottom:1px solid rgba(255,255,255,.05)}.cl:last-child{border-bottom:none;padding-bottom:0}
+.ct strong{display:block;font-size:.74rem;font-weight:600;color:#fff;margin-bottom:.07rem}
+.ct span{font-size:.7rem;font-weight:300;color:#555;line-height:1.6}
+.gg{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,200px);gap:3px}
+.gc{overflow:hidden}.gc img{width:100%;height:100%;object-fit:cover}
+.tc{background:#161616;border:1px solid rgba(155,31,142,.18);border-radius:3px;padding:1.45rem 1.3rem}
+.stars{color:#9B1F8E;font-size:.72rem;margin-bottom:.7rem}
+.tc p{font-style:italic;margin-bottom:.8rem}.tn{font-size:.62rem;font-weight:700;color:#fff;text-transform:uppercase}
+.tl{max-width:640px;margin-top:1.9rem}
+.ti{display:flex;gap:1.1rem;padding-bottom:1.55rem;position:relative}
+.ti::before{content:'';position:absolute;left:14px;top:30px;bottom:0;width:1px;background:linear-gradient(to bottom,rgba(155,31,142,.5),transparent)}
+.ti:last-child::before{display:none}.ti:last-child{padding-bottom:0}
+.tm{width:30px;height:30px;flex-shrink:0;border-radius:50%;background:#161616;border:1px solid rgba(155,31,142,.4);display:flex;align-items:center;justify-content:center;font-size:.78rem;color:#9B1F8E;position:relative;z-index:1}
+.tk h4{font-size:.62rem;font-weight:700;text-transform:uppercase;color:#9B1F8E;margin-bottom:.3rem;padding-top:.26rem}
+.oc{background:#161616;border:1px solid rgba(155,31,142,.28);border-radius:4px;padding:1.9rem}
+.oh{text-align:center;margin-bottom:1.55rem;padding-bottom:1.55rem;border-bottom:1px solid rgba(255,255,255,.05)}
+.oh h3{font-size:clamp(1.35rem,2.2vw,1.95rem);font-weight:600;margin-bottom:.35rem}
+.oh p{font-size:.63rem;font-weight:700;text-transform:uppercase;color:#9B1F8E}
+.dl{display:flex;align-items:flex-start;gap:.58rem;margin-bottom:.65rem}
+.dk{color:#9B1F8E;font-size:.8rem;flex-shrink:0;font-weight:700}
+.dt strong{display:block;font-size:.76rem;font-weight:600;color:#fff;margin-bottom:.07rem}
+.dt span{font-size:.68rem;font-weight:300;color:#555}
+.pr{background:rgba(155,31,142,.07);border:1px solid rgba(155,31,142,.22);border-radius:3px;padding:1.35rem;text-align:center}
+.pr h4{font-size:.58rem;font-weight:700;text-transform:uppercase;color:#fff;margin-bottom:.55rem}
+.pr p{font-size:.78rem;font-weight:300;color:#bbb;line-height:1.85;max-width:460px;margin:0 auto}
+.fq{display:flex;flex-direction:column;gap:.48rem;margin-top:1.75rem}
+.fi{background:#161616;border:1px solid rgba(155,31,142,.2);border-radius:3px;overflow:hidden}
+.ft{width:100%;display:flex;align-items:center;justify-content:space-between;gap:.8rem;padding:1rem 1.2rem;background:none;border:none;cursor:pointer;text-align:left;color:#fff}
+.ft span:first-child{font-size:.82rem;font-weight:500;color:#eee;flex:1}
+.fi2{color:#9B1F8E;font-size:.92rem;flex-shrink:0}
+.fb{max-height:0;overflow:hidden;transition:max-height .32s ease}.fb.on{max-height:210px}
+.fbi{padding:0 1.2rem 1.1rem;font-size:.76rem;font-weight:300;color:#bbb;line-height:1.85}
+.dv{width:38px;height:2px;background:#9B1F8E;border-radius:99px;margin:0 auto 1.1rem}
+.tags{display:flex;flex-wrap:wrap;gap:.32rem;margin-top:.38rem}
+.tag{font-size:.54rem;font-weight:700;text-transform:uppercase;color:#555;padding:.18rem .58rem;border:1px solid rgba(255,255,255,.1);border-radius:99px}
+@media(max-width:800px){.hero,.sp{grid-template-columns:1fr}.hp,.sph{height:46vw;min-height:210px}.hp{order:-1}.hc{padding:4.5rem 1.2rem 2.6rem}.ss,.g2,.bg{grid-template-columns:repeat(2,1fr)}.g2,.bg{gap:1.4rem}.g3{grid-template-columns:1fr}.st:nth-child(2){border-right:none}.st:nth-child(3),.st:nth-child(4){border-top:1px solid rgba(155,31,142,.2)}.spc{padding:1.85rem 1.2rem}.dg{grid-template-columns:1fr}.gg{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(3,140px)}.oc{padding:1.4rem .85rem}}
+@media(max-width:500px){.s{padding:2.6rem .9rem}.gg{grid-template-columns:1fr;grid-template-rows:repeat(6,120px)}.g2{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
-<nav class="nav"><div class="nav-inner"><div class="nav-brand">CraigFit<span>Online</span></div><a href="https://www.craigfitonline.com/bookings" class="nav-cta">Book Your Call</a></div></nav>
-<section class="hero">
-    <svg class="hero-mandala" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="200" cy="200" r="190" stroke="white" stroke-width="0.5"/>
-        <circle cx="200" cy="200" r="155" stroke="white" stroke-width="0.5"/>
-        <circle cx="200" cy="200" r="120" stroke="white" stroke-width="0.5"/>
-        <circle cx="200" cy="200" r="85" stroke="white" stroke-width="0.5"/>
-        <circle cx="200" cy="200" r="50" stroke="white" stroke-width="0.5"/>
-        <line x1="200" y1="10" x2="200" y2="390" stroke="white" stroke-width="0.4"/>
-        <line x1="10" y1="200" x2="390" y2="200" stroke="white" stroke-width="0.4"/>
-        <line x1="56" y1="56" x2="344" y2="344" stroke="white" stroke-width="0.4"/>
-        <line x1="344" y1="56" x2="56" y2="344" stroke="white" stroke-width="0.4"/>
-        <polygon points="200,30 225,90 290,90 238,130 258,190 200,155 142,190 162,130 110,90 175,90" stroke="white" stroke-width="0.5" fill="none"/>
-    </svg>
-    <div class="hero-copy">
-        <div class="hero-badge">Platinum 1:1 Programme. By Application Only</div>
-        <h1 class="hero-h1">Stop Feeling Trapped<br>in a Body That<br><em>Doesn't Feel Like Yours.</em></h1>
-        <p class="hero-sub">A personal 1:1 transformation built on 40+ years of mastery across movement, medicine, and mind. For those who know the problem is deeper than any exercise routine has ever reached.</p>
-        <a href="https://www.craigfitonline.com/bookings" class="btn-primary">Apply for Your Free Transformation Call</a>
-        <div class="hero-trust">
-            <span class="hero-trust-item">Rambert-Trained</span>
-            <span class="hero-trust-item">West End Dance Captain</span>
-            <span class="hero-trust-item">40+ Years Experience</span>
-            <span class="hero-trust-item">Royal Variety Performance</span>
-        </div>
-    </div>
-    <div class="hero-photo"><img src="https://static.wixstatic.com/media/683a8b_ee720c6c3b5d44ef8f091433e8560dd4~mv2.png" alt="Craig James. Mindful Movement Master" loading="eager"></div>
-</section>
-<div class="stats-strip"><div class="stats-inner">
-    <div class="stat-item reveal"><div class="stat-number">40+</div><div class="stat-label">Years Experience</div></div>
-    <div class="stat-item reveal reveal-delay-1"><div class="stat-number">90</div><div class="stat-label">Day Transformation</div></div>
-    <div class="stat-item reveal reveal-delay-2"><div class="stat-number">16+</div><div class="stat-label">Modalities Mastered</div></div>
-    <div class="stat-item reveal reveal-delay-3"><div class="stat-number">1:1</div><div class="stat-label">Personal Coaching</div></div>
-</div></div>
-<div class="quote-block"><p class="quote-text reveal">"The journey of a thousand miles begins with one step."</p><p class="quote-source reveal">Lao Tzu</p></div>
-<section class="section"><div class="section-inner">
-    <span class="section-label reveal">The truth of where you are</span>
-    <h2 class="section-heading reveal">You've Tried Everything.<br><em>Nothing Stuck.</em></h2>
-    <div class="problem-grid">
-        <ul class="problem-list">
-            <li class="reveal">You go to the gym. You try the diets. You download the apps. But you still wake up feeling stiff. Your energy crashes by 3pm. Stress lives in your shoulders, your lower back, your jaw. You look in the mirror and barely recognise the person staring back.</li>
-            <li class="reveal">You are not lazy. You are not undisciplined. You are simply working from a map that was never drawn for a body like yours, at this stage of your life.</li>
-            <li class="reveal">Every plan you have tried treats the body as a problem to be optimised. Not a story to be heard.</li>
-            <li class="reveal">What if the issue is not effort, but language? What if your body has been trying to tell you something, in a language no programme has ever taught you to understand?</li>
-        </ul>
-        <div class="problem-pullquote reveal"><p>"The problem isn't you. Every programme you've ever tried treats your body like a machine. This work begins from a completely different premise: that movement is not exercise. It is a language. And you are about to learn to speak it fluently."</p></div>
-    </div>
-</div></section>
-<div class="quote-block" style="background:var(--ink)"><p class="quote-text reveal">"Absorb what is useful, discard what is useless, and add what is essentially your own."</p><p class="quote-source reveal">Bruce Lee. The principle behind Craig's Method</p></div>
-<section class="section section-alt"><div class="section-inner">
-    <span class="section-label reveal">What If Movement Could Be Your Medicine?</span>
-    <h2 class="section-heading reveal">Three things that<br><em>change everything.</em></h2>
-    <p class="section-sub reveal">This is not one discipline. It is the synthesis of all of them, applied precisely to who you are.</p>
-    <div class="pillars-grid">
-        <div class="pillar reveal"><div class="pillar-num">01</div><h3>Release What Is Held</h3><p>Deep-seated physical stiffness and emotional holding patterns, released at the root. Not managed on the surface. Breathwork, somatic intelligence, and Tai Chi principles applied with precision.</p></div>
-        <div class="pillar reveal reveal-delay-1"><div class="pillar-num">02</div><h3>Regulate The System</h3><p>Nervous system regulation for clarity, calm under pressure, and energy that is sustained rather than borrowed. Chinese Medicine, Ayurvedic principles, and biohacking applied with wisdom.</p></div>
-        <div class="pillar reveal reveal-delay-2"><div class="pillar-num">03</div><h3>Rebuild True Strength</h3><p>Resilient, pain-free strength built the way a dancer builds it: from the inside out, without joint strain, and never at the cost of grace. PT and functional fitness unified with dance precision.</p></div>
-    </div>
-</div></section>
-<div class="scarcity-strip"><p>Craig accepts a maximum of 3 new Platinum clients each quarter. This is not a marketing line. It is the reality of one-to-one mastery.</p></div>
-<div class="split-section">
-    <div class="split-photo"><img src="https://static.wixstatic.com/media/683a8b_09dc4f4e9c3c4d64abd336e93b03fe6b~mv2.png" alt="Craig James. Tai Chi and movement practice" loading="lazy"></div>
-    <div class="split-copy">
-        <span class="section-label reveal">Every discipline, unified</span>
-        <h2 class="section-heading reveal" style="font-size:clamp(1.8rem,3vw,2.8rem)">The full breadth of<br><em>Craig's Method</em></h2>
-        <p class="section-sub reveal" style="margin-bottom:2.5rem">After 40+ years of professional practice, Craig holds formal qualifications across all of the following. Your 1:1 programme draws on every one of them, applied to your specific needs and goals.</p>
-        <div class="disciplines-grid reveal" style="grid-template-columns:1fr 1fr">
-            <div class="discipline-item"><span>Dance: Ballet, Hip-Hop, Contemporary</span></div>
-            <div class="discipline-item"><span>Tai Chi and Qigong</span></div>
-            <div class="discipline-item"><span>Yoga: therapeutic and performance</span></div>
-            <div class="discipline-item"><span>Pilates: classical and clinical</span></div>
-            <div class="discipline-item"><span>Gymnastics Coaching</span></div>
-            <div class="discipline-item"><span>Personal Training</span></div>
-            <div class="discipline-item"><span>Breathwork, Level 3 qualified</span></div>
-            <div class="discipline-item"><span>Meditation and Mindfulness</span></div>
-            <div class="discipline-item"><span>Ayurvedic Practitioner</span></div>
-            <div class="discipline-item"><span>Chinese Medicine Practitioner</span></div>
-            <div class="discipline-item"><span>Life and Wellness Coaching</span></div>
-            <div class="discipline-item"><span>Biohacking and Longevity</span></div>
-        </div>
-    </div>
-</div>
-<section class="section section-alt"><div class="section-inner">
-    <div class="credentials-grid">
-        <div class="credentials-copy">
-            <span class="section-label reveal">Who Craig is</span>
-            <h2 class="section-heading reveal">Guided by someone<br><em>who walked the path.</em></h2>
-            <p class="reveal"><strong>Craig James</strong> grew up in Brixton, navigating ADHD and dyslexia through a school system that could not see him. He found his voice through movement. From street dance on the pavements of South London to Rambert, one of the world's most prestigious dance institutions.</p>
-            <p class="reveal">That path took him to the West End as Dance Captain on <em>The Lion King</em>, <em>Bombay Dreams</em>, <em>Flashdance</em>, and <em>Fame</em>. It took him to the Royal Variety Performance in front of the Royal Family. He was managed by Gielgud Management from 1995 to 2010 alongside some of the most recognised names in British theatre.</p>
-            <p class="reveal">Alongside that performance career, Craig spent decades studying the traditions beneath movement: Ayurveda, Chinese Medicine, Tai Chi, breathwork, meditation, and the emerging sciences of biohacking and longevity. He holds formal qualifications in all of them. Total experience: 40+ years, since 1983.</p>
-            <div class="credential-tags reveal">
-                <span class="credential-tag">Rambert Trained</span>
-                <span class="credential-tag">West End Performer</span>
-                <span class="credential-tag">Dance Captain</span>
-                <span class="credential-tag">Royal Variety</span>
-                <span class="credential-tag">16+ Qualifications</span>
-                <span class="credential-tag">Since 1983</span>
-            </div>
-        </div>
-        <div class="credentials-card reveal">
-            <div class="cred-line"><span class="cred-dot">&#9830;</span><div class="cred-text"><strong>The Lion King. West End</strong><span>Dance Captain. Directed by Julie Taymor. 1998 Tony Award for Best Musical.</span></div></div>
-            <div class="cred-line"><span class="cred-dot">&#9830;</span><div class="cred-text"><strong>Royal Variety Performance</strong><span>Performed live before the Royal Family. National broadcast.</span></div></div>
-            <div class="cred-line"><span class="cred-dot">&#9830;</span><div class="cred-text"><strong>Rambert School, London</strong><span>Trained at one of the world's most prestigious contemporary dance institutions.</span></div></div>
-            <div class="cred-line"><span class="cred-dot">&#9830;</span><div class="cred-text"><strong>Gielgud Management (1995 to 2010)</strong><span>Managed professionally alongside some of the most recognised names in British theatre.</span></div></div>
-            <div class="cred-line"><span class="cred-dot">&#9830;</span><div class="cred-text"><strong>40+ Years of Practice</strong><span>Teaching, coaching, choreographing, and performing continuously since 1983.</span></div></div>
-        </div>
-    </div>
-</div></section>
-<div class="gallery-grid" style="margin:0;border-radius:0">
-    <div class="gallery-cell"><img src="https://static.wixstatic.com/media/1bf8c6_06b163e1f4f54bd6a796c3339d7fc959~mv2.jpg" alt="Craig James in Brixton" loading="lazy"></div>
-    <div class="gallery-cell"><img src="https://static.wixstatic.com/media/683a8b_567c151438014b23a9b601b816337e1f~mv2.jpeg" alt="Craig James. West End performance" loading="lazy"></div>
-    <div class="gallery-cell"><img src="https://static.wixstatic.com/media/683a8b_3591eaa030ed4ec4b0005cabe1e36c0c~mv2.jpeg" alt="Craig James on stage" loading="lazy"></div>
-    <div class="gallery-cell"><img src="https://static.wixstatic.com/media/683a8b_25331e09007b421c8100a45900f87ad4~mv2.jpeg" alt="Craig James at Rambert" loading="lazy"></div>
-    <div class="gallery-cell"><img src="https://static.wixstatic.com/media/d08101_5f159fe3e8bc4d369ae1b538cc0dce5f~mv2.jpg" alt="Royal Variety Performance" loading="lazy"></div>
-    <div class="gallery-cell"><img src="https://static.wixstatic.com/media/683a8b_01a6a5e20d084131b24b370fac0f3cfe~mv2.jpeg" alt="Craig James. Movement artistry" loading="lazy"></div>
-</div>
-<div class="quote-block" style="background:var(--ink)"><p class="quote-text reveal">"The body is your temple. Keep it pure and clean for the soul to reside in."</p><p class="quote-source reveal">B.K.S. Iyengar</p></div>
-<section class="section section-dark"><div class="section-inner">
-    <div style="text-align:center;margin-bottom:0.5rem"><span class="section-label reveal">What others have found</span></div>
-    <div style="text-align:center"><h2 class="section-heading reveal" style="text-align:center">Real words from<br><em>real transformations.</em></h2></div>
-    <div class="testimonials-grid">
-        <div class="testimonial reveal"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"I've been to physios, personal trainers, yoga teachers and life coaches. None of them saw what Craig saw in the first session. He understood my body in a way I never had."</p><div class="testimonial-name">Sarah L.</div></div>
-        <div class="testimonial reveal reveal-delay-1"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"As a busy professional, I thought I didn't have time for something like this. Three months in, I have more energy, more focus, and more clarity than I've had in ten years."</p><div class="testimonial-name">Mark T.</div></div>
-        <div class="testimonial reveal reveal-delay-2"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"I was hesitant about online coaching, but Craig's presence and precision through a screen is more powerful than any in-person trainer I've worked with. This is different in every way."</p><div class="testimonial-name">Emily R.</div></div>
-    </div>
-</div></section>
-<div class="split-section">
-    <div class="split-copy" style="background:var(--black)">
-        <span class="section-label reveal">How it unfolds</span>
-        <h2 class="section-heading reveal" style="font-size:clamp(1.8rem,3vw,2.8rem)">The path from where you are<br><em>to where this takes you.</em></h2>
-        <p class="section-sub reveal" style="margin-bottom:2.5rem">Every Platinum journey is unique. The structure below is constant. What is built within it is specific to you.</p>
-        <div class="timeline">
-            <div class="timeline-item reveal"><div class="timeline-marker">1</div><div class="timeline-content"><h4>Free Consultation Call. 45 Minutes</h4><p>This is not a sales call. It is a real conversation about where you are, what is not working, and whether this work is the right fit for you. Craig speaks to you directly. If it is not the right match, he will say so honestly.</p></div></div>
-            <div class="timeline-item reveal"><div class="timeline-marker">2</div><div class="timeline-content"><h4>Intake and Foundation Assessment</h4><p>A deep and structured intake covering your movement history, physical patterns, stress landscape, goals, and the story of your body. This is where the bespoke programme begins to take shape.</p></div></div>
-            <div class="timeline-item reveal"><div class="timeline-marker">3</div><div class="timeline-content"><h4>Your Personalised Programme</h4><p>A programme built specifically for you: drawing on whichever disciplines are most relevant, sequenced precisely, and designed to evolve as you do. Nothing generic. Nothing off-the-shelf.</p></div></div>
-            <div class="timeline-item reveal"><div class="timeline-marker">4</div><div class="timeline-content"><h4>Weekly 1:1 Sessions with Craig</h4><p>Real-time sessions conducted via video. Every session builds on the last. Craig leads, adjusts, observes, and teaches in real time, from the full breadth of his 40+ years of mastery.</p></div></div>
-            <div class="timeline-item reveal" style="padding-bottom:0"><div class="timeline-marker">5</div><div class="timeline-content"><h4>Ongoing Support and Refinement</h4><p>Between sessions, you have access to relevant material from the full CraigFit Vault and to Craig's ongoing guidance as the work deepens.</p></div></div>
-        </div>
-    </div>
-    <div class="split-photo"><img src="https://static.wixstatic.com/media/683a8b_2538277d81aa4f58bfb214f28b559ceb~mv2.jpg" alt="Craig James portrait" loading="lazy"></div>
-</div>
-<div class="quote-block" style="background:var(--card-bg)"><p class="quote-text reveal">"Knowing others is intelligence. Knowing yourself is true wisdom."</p><p class="quote-source reveal">Lao Tzu</p></div>
-<section class="section" style="background:var(--black)"><div class="section-inner">
-    <div style="text-align:center;margin-bottom:3.5rem">
-        <span class="section-label reveal">The Investment</span>
-        <h2 class="section-heading reveal" style="text-align:center">The Platinum Mindful<br><em>Movement Mastery Experience</em></h2>
-    </div>
-    <div class="offer-card reveal">
-        <div class="offer-header"><h3>What You Receive</h3><p>90 Days &#183; 1:1 with Craig &#183; Complete Transformation</p></div>
-        <div class="deliverables-grid">
-            <div class="deliverable"><span class="deliverable-check">&#10003;</span><div class="deliverable-text"><strong>Bespoke Movement Blueprint</strong><span>Tailored to your body's history and goals</span></div></div>
-            <div class="deliverable"><span class="deliverable-check">&#10003;</span><div class="deliverable-text"><strong>Weekly 1:1 Coaching Calls (60 mins)</strong><span>Direct access to Craig's 40+ years of expertise</span></div></div>
-            <div class="deliverable"><span class="deliverable-check">&#10003;</span><div class="deliverable-text"><strong>Unlimited Messenger Support</strong><span>A direct line for continuous support and accountability</span></div></div>
-            <div class="deliverable"><span class="deliverable-check">&#10003;</span><div class="deliverable-text"><strong>Nervous System Regulation Protocol</strong><span>Release stress and emotional tension at the root</span></div></div>
-            <div class="deliverable"><span class="deliverable-check">&#10003;</span><div class="deliverable-text"><strong>Ayurvedic Nutrition and Daily Rhythms</strong><span>Custom guidance to fuel vitality and deep sleep</span></div></div>
-            <div class="deliverable"><span class="deliverable-check">&#10003;</span><div class="deliverable-text"><strong>Longevity and Biohacking Strategy</strong><span>Sustained energy and lifelong autonomy</span></div></div>
-            <div class="deliverable"><span class="deliverable-check">&#10003;</span><div class="deliverable-text"><strong>Full CraigFit Vault Access</strong><span>40+ video courses and on-demand practice library</span></div></div>
-            <div class="deliverable"><span class="deliverable-check">&#10003;</span><div class="deliverable-text"><strong>90-Day Accountability and Progress Tracking</strong><span>Measured milestones, adapted as you grow</span></div></div>
-        </div>
-        <div class="pricing-block">
-            <div class="pricing-label">Your Investment</div>
-            <div class="pricing-value">Discussed on Your Transformation Call</div>
-            <p class="pricing-detail">Your programme is built around you. Your body, your goals, your pace. Investment is confirmed during your free call, with fast-action rates available for those ready to commit.</p>
-            <div class="pricing-note">Flexible payment plans available &#183; Fast-action rates available for those ready to commit</div>
-        </div>
-        <div class="offer-cta-wrap">
-            <a href="https://www.craigfitonline.com/bookings" class="btn-primary">Apply for Your Free Transformation Call</a>
-            <p class="offer-cta-sub">Strictly limited client slots to ensure dedicated 1:1 depth.</p>
-        </div>
-        <div class="promise-block">
-            <div class="promise-icon">&#128737;</div>
-            <h4>The Movement Promise</h4>
-            <p>Show up fully. Do the work. Attend the calls. If after 90 days you don't feel significantly more connected, energised, and strong in your body, <strong>Craig will continue working with you 1:1 at no extra charge until you do.</strong></p>
-        </div>
-    </div>
-</div></section>
-<section class="section section-alt"><div class="section-inner" style="max-width:760px">
-    <div style="text-align:center"><div class="divider-line"></div><h2 class="section-heading reveal" style="text-align:center;margin-bottom:0">Frequently Asked Questions</h2></div>
-    <div class="faq-list">
-        <div class="faq-item reveal"><button class="faq-trigger" onclick="toggleFaq(this)" aria-expanded="false"><span class="faq-trigger-text">I'm a complete beginner. Is this for me?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-body"><div class="faq-body-inner">Absolutely. This programme meets you exactly where you are. Your bespoke blueprint is built around your current physical reality. No prior experience is needed. Just a willingness to learn.</div></div></div>
-        <div class="faq-item reveal"><button class="faq-trigger" onclick="toggleFaq(this)" aria-expanded="false"><span class="faq-trigger-text">I'm over 40 or 50. Can I really do this?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-body"><div class="faq-body-inner">This methodology is designed to honour your body at every age. It is not about forcing your joints into unnatural positions. Many of Craig's most transformative clients are in their 40s, 50s, and beyond.</div></div></div>
-        <div class="faq-item reveal"><button class="faq-trigger" onclick="toggleFaq(this)" aria-expanded="false"><span class="faq-trigger-text">How much time do I need to commit?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-body"><div class="faq-body-inner">20 to 30 minutes daily, plus your weekly 1:1 coaching call. This programme is specifically designed for busy professionals. Not people with hours to burn in the gym.</div></div></div>
-        <div class="faq-item reveal"><button class="faq-trigger" onclick="toggleFaq(this)" aria-expanded="false"><span class="faq-trigger-text">Do I need equipment or a gym membership?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-body"><div class="faq-body-inner">No. Your body is the only equipment you need. Everything in your blueprint can be done at home with minimal space.</div></div></div>
-    </div>
-</div></section>
-<div style="position:relative;height:420px;overflow:hidden">
-    <img src="https://static.wixstatic.com/media/683a8b_707278fa21f84b9b9d05466dcec903a3~mv2.jpg" alt="Craig James movement" style="width:100%;height:100%;object-fit:cover;object-position:center 35%" loading="lazy">
-    <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.6) 100%)"></div>
-    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;z-index:1;padding:2rem">
-        <div><p class="quote-text" style="font-size:clamp(1.4rem,3vw,2.4rem);max-width:700px;margin:0 auto 1rem">"This breadth, from the Royal Variety stage to Chinese Medicine, from ballet precision to breathwork, is what makes this programme unlike anything else you will find."</p><p class="quote-source">Craig James</p></div>
-    </div>
-</div>
-<section class="final-cta">
-    <div class="final-cta-rings" aria-hidden="true"><div class="final-ring final-ring-1"></div><div class="final-ring final-ring-2"></div><div class="final-ring final-ring-3"></div></div>
-    <div class="final-cta-inner">
-        <div class="divider-line reveal"></div>
-        <h2 class="reveal">Your Body Has Been<br>Waiting <em>Long Enough.</em></h2>
-        <div class="final-cta-body reveal">
-            <p>You didn't arrive here by accident. You arrived because a part of you knows there is more. More energy, more freedom, more aliveness available in this body you have been given.</p>
-            <p>The next step is simple. Book your free Transformation Call. We'll spend 30 to 45 minutes together, deep diving into where you are, where you want to be, and whether we're the right fit to work together.</p>
-            <p style="font-weight:500;color:var(--off-white)">No pressure. No sales pitch. Just a real conversation about your body and your potential.</p>
-        </div>
-        <a href="https://www.craigfitonline.com/bookings" class="btn-primary reveal">Apply for Your Free Transformation Call</a>
-        <p class="final-cta-note reveal">Only 3 Platinum client places available this quarter.</p>
-    </div>
-</section>
-<footer class="footer">
-    <div class="footer-brand">CraigFitOnline. Mindful Movement Mastery</div>
-    <div class="footer-sub">Wellness &#183; Fitness &#183; Dance &#183; Mindful Movement</div>
-    <div class="footer-links">
-        <a href="https://www.craigfitonline.com">Home</a>
-        <a href="https://www.craigfitonline.com/gold-membership">Gold Membership</a>
-        <a href="https://www.craigfitonline.com/platinum-membership">Platinum Membership</a>
-        <a href="https://www.craigfitonline.com/consultation">Book a Consultation</a>
-        <a href="https://www.craigfitonline.com/terms-and-conditions">Terms</a>
-        <a href="https://www.craigfitonline.com/privacy-policy">Privacy</a>
-    </div>
-    <div class="footer-copy">&copy; 2026 CraigFitOnline. All rights reserved.</div>
-</footer>
-<script>
-(function(){
-    var els=document.querySelectorAll('.reveal');
-    if(!els.length)return;
-    var observer=new IntersectionObserver(function(entries){
-        entries.forEach(function(entry){
-            if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}
-        });
-    },{threshold:0.1});
-    els.forEach(function(el){observer.observe(el);});
-})();
-function toggleFaq(trigger){
-    var item=trigger.closest('.faq-item');
-    var body=item.querySelector('.faq-body');
-    var icon=trigger.querySelector('.faq-icon');
-    var isOpen=body.classList.contains('open');
-    document.querySelectorAll('.faq-body.open').forEach(function(b){
-        b.classList.remove('open');
-        var t=b.previousElementSibling;
-        if(t){t.setAttribute('aria-expanded','false');var i=t.querySelector('.faq-icon');if(i)i.textContent='+';}
-    });
-    if(!isOpen){body.classList.add('open');trigger.setAttribute('aria-expanded','true');icon.textContent='\u2212';}
-}
-</script>
+<nav><div class="P" style="font-size:.92rem;font-weight:600;letter-spacing:.06em">CraigFit<span class="m">Online</span></div><a href="https://www.craigfitonline.com/bookings" class="nc">Book Your Call</a></nav>
+<section class="hero"><div class="hc">
+<div style="display:inline-block;font-size:.57rem;font-weight:700;text-transform:uppercase;letter-spacing:.17em;color:#aaa;border:1px solid rgba(155,31,142,.2);background:rgba(155,31,142,.07);padding:.28rem .82rem;border-radius:99px;margin-bottom:1.3rem">Platinum 1:1 Programme. By Application Only</div>
+<h1>Stop Feeling Trapped<br>in a Body That<br><em>Doesn't Feel Like Yours.</em></h1>
+<p style="max-width:380px;margin-bottom:1.85rem">A personal 1:1 transformation built on 40+ years of mastery across movement, medicine, and mind. For those who know the problem is deeper than any exercise routine has ever reached.</p>
+<a href="https://www.craigfitonline.com/bookings" class="btn">Apply for Your Free Transformation Call</a>
+<div style="display:flex;flex-wrap:wrap;gap:.65rem;margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,.06);font-size:.6rem;font-weight:500;text-transform:uppercase;color:#555"><span>Rambert-Trained</span><span>West End Dance Captain</span><span>40+ Years Experience</span><span>Royal Variety Performance</span></div>
+</div><div class="hp"><img src="https://static.wixstatic.com/media/683a8b_ee720c6c3b5d44ef8f091433e8560dd4~mv2.png" alt="Craig James. Mindful Movement Master" loading="eager"></div></section>
+<div class="ss"><div class="st"><div class="sn P">40+</div><div class="sl">Years Experience</div></div><div class="st"><div class="sn P">90</div><div class="sl">Day Transformation</div></div><div class="st"><div class="sn P">16+</div><div class="sl">Modalities Mastered</div></div><div class="st"><div class="sn P">1:1</div><div class="sl">Personal Coaching</div></div></div>
+<div class="qb"><p class="qt P">"The journey of a thousand miles begins with one step."</p><p class="qs">Lao Tzu</p></div>
+<section class="s"><div class="w"><span class="lb">The truth of where you are</span><h2>You've Tried Everything.<br><em>Nothing Stuck.</em></h2><div class="g2"><ul class="pl"><li><p>You go to the gym. You try the diets. But you still wake up feeling stiff. Your energy crashes by 3pm. Stress lives in your shoulders, your lower back, your jaw.</p></li><li><p>You are not lazy. You are working from a map that was never drawn for a body like yours, at this stage of your life.</p></li><li><p>Every plan you have tried treats the body as a problem to be optimised. Not a story to be heard.</p></li><li><p>What if the issue is not effort, but language? What if your body has been trying to tell you something no programme has ever taught you to understand?</p></li></ul><div class="pq"><p>"Every programme you've tried treats your body like a machine. This work begins from a completely different premise: movement is not exercise. It is a language. You are about to learn to speak it fluently."</p></div></div></div></section>
+<div class="qb" style="background:#111"><p class="qt P">"Absorb what is useful, discard what is useless, and add what is essentially your own."</p><p class="qs">Bruce Lee. The principle behind Craig's Method</p></div>
+<section class="s sa"><div class="w"><span class="lb">What If Movement Could Be Your Medicine?</span><h2>Three things that<br><em>change everything.</em></h2><div class="g3"><div class="card"><div class="cn P">01</div><h3>Release What Is Held</h3><p>Deep-seated stiffness and emotional holding patterns, released at the root. Breathwork, somatic intelligence, and Tai Chi applied with precision.</p></div><div class="card"><div class="cn P">02</div><h3>Regulate The System</h3><p>Nervous system regulation for clarity, calm under pressure, and sustained energy. Chinese Medicine and Ayurvedic principles applied with wisdom.</p></div><div class="card"><div class="cn P">03</div><h3>Rebuild True Strength</h3><p>Resilient, pain-free strength built the way a dancer builds it: from the inside out, without joint strain, and never at the cost of grace.</p></div></div></div></section>
+<div class="sc"><p>Craig accepts a maximum of 3 new Platinum clients each quarter. This is not a marketing line. It is the reality of one-to-one mastery.</p></div>
+<div class="sp"><div class="spc"><span class="lb">Every discipline, unified</span><h2 style="font-size:clamp(1.4rem,2.2vw,1.95rem)">The full breadth of<br><em>Craig's Method</em></h2><p style="margin-bottom:1.2rem">After 40+ years, Craig holds formal qualifications across all of the following.</p><div class="dg"><div class="di">Dance: Ballet, Hip-Hop, Contemporary</div><div class="di">Tai Chi and Qigong</div><div class="di">Yoga: therapeutic and performance</div><div class="di">Pilates: classical and clinical</div><div class="di">Gymnastics Coaching</div><div class="di">Personal Training</div><div class="di">Breathwork, Level 3 qualified</div><div class="di">Meditation and Mindfulness</div><div class="di">Ayurvedic Practitioner</div><div class="di">Chinese Medicine Practitioner</div><div class="di">Life and Wellness Coaching</div><div class="di">Biohacking and Longevity</div></div></div><div class="sph"><img src="https://static.wixstatic.com/media/683a8b_2538277d81aa4f58bfb214f28b559ceb~mv2.jpg" alt="Craig James portrait" loading="lazy"></div></div>
+<section class="s sa"><div class="w"><div class="bg"><div><span class="lb">Who Craig is</span><h2>Guided by someone<br><em>who walked the path.</em></h2><p style="margin-bottom:.75rem"><strong style="color:#fff;font-weight:600">Craig James</strong> grew up in Brixton. From street dance on the pavements of South London to Rambert, one of the world's most prestigious dance institutions.</p><p style="margin-bottom:.75rem">West End Dance Captain on <em>The Lion King</em>, <em>Bombay Dreams</em>, <em>Flashdance</em>, and <em>Fame</em>. Royal Variety Performance. Gielgud Management 1995 to 2010.</p><p style="margin-bottom:.75rem">Alongside that career: Ayurveda, Chinese Medicine, Tai Chi, breathwork, meditation, and biohacking. Formal qualifications in all. 40+ years, since 1983.</p><div class="tags"><span class="tag">Rambert Trained</span><span class="tag">West End Performer</span><span class="tag">Dance Captain</span><span class="tag">Royal Variety</span><span class="tag">16+ Qualifications</span><span class="tag">Since 1983</span></div></div><div class="bcc"><div class="cl"><span class="m" style="font-size:.4rem;flex-shrink:0;margin-top:.16rem">&#10022;</span><div class="ct"><strong>The Lion King. West End</strong><span>Dance Captain. Directed by Julie Taymor. 1998 Tony Award for Best Musical.</span></div></div><div class="cl"><span class="m" style="font-size:.4rem;flex-shrink:0;margin-top:.16rem">&#10022;</span><div class="ct"><strong>Royal Variety Performance</strong><span>Performed live before the Royal Family. National broadcast.</span></div></div><div class="cl"><span class="m" style="font-size:.4rem;flex-shrink:0;margin-top:.16rem">&#10022;</span><div class="ct"><strong>Rambert School, London</strong><span>One of the world's most prestigious contemporary dance institutions.</span></div></div><div class="cl"><span class="m" style="font-size:.4rem;flex-shrink:0;margin-top:.16rem">&#10022;</span><div class="ct"><strong>Gielgud Management (1995 to 2010)</strong><span>Managed alongside the most recognised names in British theatre.</span></div></div><div class="cl"><span class="m" style="font-size:.4rem;flex-shrink:0;margin-top:.16rem">&#10022;</span><div class="ct"><strong>40+ Years of Practice</strong><span>Teaching, coaching, choreographing, and performing continuously since 1983.</span></div></div></div></div></div></section>
+<div class="gg"><div class="gc"><img src="https://static.wixstatic.com/media/1bf8c6_06b163e1f4f54bd6a796c3339d7fc959~mv2.jpg" alt="Craig James in Brixton" loading="lazy"></div><div class="gc"><img src="https://static.wixstatic.com/media/683a8b_567c151438014b23a9b601b816337e1f~mv2.jpeg" alt="Craig James. West End performance" loading="lazy"></div><div class="gc"><img src="https://static.wixstatic.com/media/683a8b_3591eaa030ed4ec4b0005cabe1e36c0c~mv2.jpeg" alt="Craig James on stage" loading="lazy"></div><div class="gc"><img src="https://static.wixstatic.com/media/683a8b_25331e09007b421c8100a45900f87ad4~mv2.jpeg" alt="Craig James at Rambert" loading="lazy"></div><div class="gc"><img src="https://static.wixstatic.com/media/d08101_5f159fe3e8bc4d369ae1b538cc0dce5f~mv2.jpg" alt="Royal Variety Performance" loading="lazy"></div><div class="gc"><img src="https://static.wixstatic.com/media/683a8b_01a6a5e20d084131b24b370fac0f3cfe~mv2.jpeg" alt="Craig James. Movement artistry" loading="lazy"></div></div>
+<div class="qb" style="background:#111"><p class="qt P">"The body is your temple. Keep it pure and clean for the soul to reside in."</p><p class="qs">B.K.S. Iyengar</p></div>
+<section class="s sd"><div class="w"><div style="text-align:center"><span class="lb">What others have found</span><h2>Real words from<br><em>real transformations.</em></h2></div><div class="g3" style="margin-top:1.85rem"><div class="tc"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"None of them saw what Craig saw in the first session. He understood my body in a way I never had."</p><div class="tn">Sarah L.</div></div><div class="tc"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Three months in, I have more energy, more focus, and more clarity than I've had in ten years."</p><div class="tn">Mark T.</div></div><div class="tc"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Craig's presence and precision through a screen is more powerful than any in-person trainer I've worked with."</p><div class="tn">Emily R.</div></div></div></div></section>
+<div class="sp"><div class="spc" style="background:#000"><span class="lb">How it unfolds</span><h2 style="font-size:clamp(1.4rem,2.2vw,1.95rem)">The path from where you are<br><em>to where this takes you.</em></h2><div class="tl"><div class="ti"><div class="tm P">1</div><div class="tk"><h4>Free Consultation Call. 45 Minutes</h4><p>A real conversation about where you are and whether this is the right fit. If it is not the right match, Craig will say so honestly.</p></div></div><div class="ti"><div class="tm P">2</div><div class="tk"><h4>Intake and Foundation Assessment</h4><p>A deep intake covering your movement history, physical patterns, stress landscape, and goals. This is where your bespoke programme takes shape.</p></div></div><div class="ti"><div class="tm P">3</div><div class="tk"><h4>Your Personalised Programme</h4><p>Built specifically for you, drawing on whichever disciplines are most relevant, sequenced precisely, and designed to evolve as you do.</p></div></div><div class="ti"><div class="tm P">4</div><div class="tk"><h4>Weekly 1:1 Sessions with Craig</h4><p>Real-time sessions via video. Every session builds on the last. Craig leads and teaches from the full breadth of his 40+ years of mastery.</p></div></div><div class="ti"><div class="tm P">5</div><div class="tk"><h4>Ongoing Support and Refinement</h4><p>Between sessions, full access to the CraigFit Vault and Craig's ongoing guidance as the work deepens.</p></div></div></div></div><div class="sph"><img src="https://static.wixstatic.com/media/683a8b_2538277d81aa4f58bfb214f28b559ceb~mv2.jpg" alt="Craig James portrait" loading="lazy"></div></div>
+<section class="s"><div class="w"><div style="text-align:center;margin-bottom:1.95rem"><span class="lb">The Investment</span><h2>The Platinum Mindful<br><em>Movement Mastery Experience</em></h2></div><div class="oc"><div class="oh"><h3 class="P">What You Receive</h3><p>90 Days &#183; 1:1 with Craig &#183; Complete Transformation</p></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-bottom:1.55rem"><div class="dl"><span class="dk">&#10003;</span><div class="dt"><strong>Bespoke Movement Blueprint</strong><span>Tailored to your body's history and goals</span></div></div><div class="dl"><span class="dk">&#10003;</span><div class="dt"><strong>Weekly 1:1 Coaching Calls (60 mins)</strong><span>Direct access to Craig's 40+ years of expertise</span></div></div><div class="dl"><span class="dk">&#10003;</span><div class="dt"><strong>Unlimited Messenger Support</strong><span>Continuous support and accountability</span></div></div><div class="dl"><span class="dk">&#10003;</span><div class="dt"><strong>Nervous System Regulation Protocol</strong><span>Release stress and emotional tension at the root</span></div></div><div class="dl"><span class="dk">&#10003;</span><div class="dt"><strong>Ayurvedic Nutrition and Daily Rhythms</strong><span>Custom guidance to fuel vitality and deep sleep</span></div></div><div class="dl"><span class="dk">&#10003;</span><div class="dt"><strong>Longevity and Biohacking Strategy</strong><span>Sustained energy and lifelong autonomy</span></div></div><div class="dl"><span class="dk">&#10003;</span><div class="dt"><strong>Full CraigFit Vault Access</strong><span>40+ video courses and on-demand practice library</span></div></div><div class="dl"><span class="dk">&#10003;</span><div class="dt"><strong>90-Day Accountability and Progress Tracking</strong><span>Measured milestones, adapted as you grow</span></div></div></div><div style="text-align:center;padding:1.5rem .85rem;margin-bottom:1.5rem;border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05)"><div style="font-size:.54rem;font-weight:700;text-transform:uppercase;letter-spacing:.17em;color:#555;margin-bottom:.55rem">Your Investment</div><div class="P" style="font-size:1.45rem;font-weight:600;margin-bottom:.42rem">Discussed on Your Transformation Call</div><p style="font-size:.76rem;max-width:400px;margin:0 auto">Your programme is built around you. Investment is confirmed during your free call, with fast-action rates available for those ready to commit.</p></div><div style="text-align:center;margin-bottom:1.5rem"><a href="https://www.craigfitonline.com/bookings" class="btn">Apply for Your Free Transformation Call</a><p style="font-size:.59rem;color:#444;margin-top:.45rem">Strictly limited client slots to ensure dedicated 1:1 depth.</p></div><div class="pr"><h4>The Movement Promise</h4><p>Show up fully. Do the work. Attend the calls. If after 90 days you don't feel significantly more connected, energised, and strong in your body, <strong style="color:#fff;font-weight:600">Craig will continue working with you 1:1 at no extra charge until you do.</strong></p></div></div></div></section>
+<section class="s sa"><div class="w" style="max-width:640px"><div style="text-align:center"><div class="dv"></div><h2 style="text-align:center;margin-bottom:0">Frequently Asked Questions</h2></div><div class="fq"><div class="fi"><button class="ft" onclick="tF(this)" aria-expanded="false"><span>I'm a complete beginner. Is this for me?</span><span class="fi2">+</span></button><div class="fb"><div class="fbi">Absolutely. This programme meets you exactly where you are. No prior experience is needed. Just a willingness to learn.</div></div></div><div class="fi"><button class="ft" onclick="tF(this)" aria-expanded="false"><span>I'm over 40 or 50. Can I really do this?</span><span class="fi2">+</span></button><div class="fb"><div class="fbi">This methodology is designed to honour your body at every age. Many of Craig's most transformative clients are in their 40s, 50s, and beyond. It is not about forcing anything. It is about listening.</div></div></div><div class="fi"><button class="ft" onclick="tF(this)" aria-expanded="false"><span>How much time do I need to commit?</span><span class="fi2">+</span></button><div class="fb"><div class="fbi">20 to 30 minutes daily, plus your weekly 1:1 coaching call. This programme is designed for busy professionals. Not people with hours to burn in the gym.</div></div></div><div class="fi"><button class="ft" onclick="tF(this)" aria-expanded="false"><span>Do I need equipment or a gym membership?</span><span class="fi2">+</span></button><div class="fb"><div class="fbi">No. Your body is the only equipment you need. Everything in your blueprint can be done at home with minimal space.</div></div></div></div></div></section>
+<section style="background:#000;padding:4.25rem 1.4rem;text-align:center"><div style="max-width:600px;margin:0 auto"><div class="dv"></div><h2>Your Body Has Been<br>Waiting <em>Long Enough.</em></h2><p style="margin-bottom:.7rem">You didn't arrive here by accident. You arrived because a part of you knows there is more. More energy, more freedom, more aliveness available in this body you have been given.</p><p style="margin-bottom:.7rem">Book your free Transformation Call. 30 to 45 minutes together, deep diving into where you are, where you want to be, and whether we're the right fit.</p><p style="font-weight:500;color:#f0ede8;margin-bottom:1.8rem">No pressure. No sales pitch. Just a real conversation about your body and your potential.</p><a href="https://www.craigfitonline.com/bookings" class="btn">Apply for Your Free Transformation Call</a><p style="font-size:.58rem;font-weight:600;text-transform:uppercase;color:#444;margin-top:.75rem">Only 3 Platinum client places available this quarter.</p></div></section>
+<footer style="background:#0a0a0a;border-top:1px solid rgba(155,31,142,.2);padding:1.65rem 1.4rem;text-align:center"><div class="P" style="font-size:.86rem;margin-bottom:.28rem">CraigFitOnline. Mindful Movement Mastery</div><div style="font-size:.59rem;color:#444;margin-bottom:.85rem">Wellness &#183; Fitness &#183; Dance &#183; Mindful Movement</div><div style="display:flex;justify-content:center;flex-wrap:wrap;gap:.88rem;margin-bottom:.8rem;font-size:.58rem;font-weight:500;text-transform:uppercase;color:#444"><a href="https://www.craigfitonline.com">Home</a><a href="https://www.craigfitonline.com/gold-membership">Gold Membership</a><a href="https://www.craigfitonline.com/platinum-membership">Platinum Membership</a><a href="https://www.craigfitonline.com/consultation">Book a Consultation</a><a href="https://www.craigfitonline.com/terms-and-conditions">Terms</a><a href="https://www.craigfitonline.com/privacy-policy">Privacy</a></div><div style="font-size:.58rem;color:#444">&copy; 2026 CraigFitOnline. All rights reserved.</div></footer>
+<script>function tF(t){var i=t.closest('.fi'),b=i.querySelector('.fb'),c=t.querySelector('.fi2'),o=b.classList.contains('on');document.querySelectorAll('.fb.on').forEach(function(x){x.classList.remove('on');var p=x.previousElementSibling;p&&(p.setAttribute('aria-expanded','false'),p.querySelector('.fi2').textContent='+')});o||(b.classList.add('on'),t.setAttribute('aria-expanded','true'),c.textContent='\u2212')}</script>
 </body>
 </html>
